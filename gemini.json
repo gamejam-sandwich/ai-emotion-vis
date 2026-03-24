@@ -1,0 +1,154 @@
+{
+  "emotional_analysis": [
+    {
+      "word": "demon",
+      "emotional_intensity": 95,
+      "semantic_complexity": 30,
+      "explanation": "This word describes the irresistible, irrational drive to write, representing the highest emotional stakes of the creative process[cite: 129]."
+    },
+    {
+      "word": "totalitarianism",
+      "emotional_intensity": 90,
+      "semantic_complexity": 85,
+      "explanation": "Chosen as the central antagonist of Orwell's political writing, it carries heavy historical weight and complex sociopolitical connotations[cite: 93]."
+    },
+    {
+      "word": "loneliness",
+      "emotional_intensity": 85,
+      "semantic_complexity": 15,
+      "explanation": "This fundamental human emotion is identified as the root of Orwell's early literary ambitions and isolated childhood world[cite: 6, 7]."
+    },
+    {
+      "word": "injustice",
+      "emotional_intensity": 88,
+      "semantic_complexity": 20,
+      "explanation": "It serves as the primary emotional trigger for Orwell’s political work, signifying a deep-seated reaction to perceived wrongs[cite: 98]."
+    },
+    {
+      "word": "outraging",
+      "emotional_intensity": 85,
+      "semantic_complexity": 40,
+      "explanation": "Used to describe Orwell's sense of violating his 'true nature' when trying to avoid writing, this word highlights internal conflict[cite: 4]."
+    },
+    {
+      "word": "windowpane",
+      "emotional_intensity": 15,
+      "semantic_complexity": 10,
+      "explanation": "Chosen for its iconic metaphorical value in describing 'good prose,' it is emotionally neutral but semantically clear and impactful[cite: 132]."
+    },
+    {
+      "word": "exhausting",
+      "emotional_intensity": 82,
+      "semantic_complexity": 15,
+      "explanation": "This visceral descriptor captures the physical and mental toll Orwell associates with the struggle of completing a book[cite: 128]."
+    },
+    {
+      "word": "humbug",
+      "emotional_intensity": 65,
+      "semantic_complexity": 55,
+      "explanation": "Orwell uses this somewhat dated term to forcefully dismiss the pretense that writers are not motivated by ego[cite: 46, 133]."
+    },
+    {
+      "word": "egoism",
+      "emotional_intensity": 75,
+      "semantic_complexity": 50,
+      "explanation": "Identified as the first 'great motive' for writing, it carries a sharp, honest assessment of the writer's vanity[cite: 46]."
+    },
+    {
+      "word": "undervalued",
+      "emotional_intensity": 80,
+      "semantic_complexity": 30,
+      "explanation": "This word captures the core feeling of Orwell's youth that fueled his desire to create a private world where he could succeed[cite: 7, 8]."
+    },
+    {
+      "word": "compulsion",
+      "emotional_intensity": 85,
+      "semantic_complexity": 45,
+      "explanation": "It describes the involuntary nature of his early descriptive 'story-making,' suggesting a lack of agency in his creative drive[cite: 27]."
+    },
+    {
+      "word": "aesthetic",
+      "emotional_intensity": 25,
+      "semantic_complexity": 70,
+      "explanation": "While semantically complex as a philosophical term, it represents the cooler, more detached pleasure Orwell finds in language[cite: 52, 101]."
+    },
+    {
+      "word": "partisanship",
+      "emotional_intensity": 70,
+      "semantic_complexity": 65,
+      "explanation": "This represents the emotional bias Orwell admits is his starting point for writing, requiring a nuanced understanding of loyalty[cite: 98]."
+    },
+    {
+      "word": "efface",
+      "emotional_intensity": 40,
+      "semantic_complexity": 75,
+      "explanation": "This sophisticated verb describes the difficult act of removing one's personality to produce readable prose[cite: 131]."
+    },
+    {
+      "word": "tumultuous",
+      "emotional_intensity": 60,
+      "semantic_complexity": 65,
+      "explanation": "Orwell uses this to describe the chaotic era he lives in, which forces an emotional and political reaction from the writer[cite: 40]."
+    },
+    {
+      "word": "integrity",
+      "emotional_intensity": 65,
+      "semantic_complexity": 45,
+      "explanation": "Chosen because it represents the emotional and intellectual balance Orwell strives to maintain between art and politics[cite: 96]."
+    },
+    {
+      "word": "purple",
+      "emotional_intensity": 55,
+      "semantic_complexity": 60,
+      "explanation": "In the context of 'purple passages,' this word carries an emotional tone of regret for meaningless, overly decorative writing[cite: 37, 133]."
+    },
+    {
+      "word": "reconcile",
+      "emotional_intensity": 50,
+      "semantic_complexity": 50,
+      "explanation": "This word captures the central emotional and intellectual task of Orwell’s career: balancing personal likes with public duties[cite: 106]."
+    },
+    {
+      "word": "naturalistic",
+      "emotional_intensity": 20,
+      "semantic_complexity": 75,
+      "explanation": "A literary term describing the type of novels Orwell originally wanted to write, possessing low emotional heat but specific technical meaning[cite: 37]."
+    },
+    {
+      "word": "ghastly",
+      "emotional_intensity": 78,
+      "semantic_complexity": 25,
+      "explanation": "Used to describe his early failed attempts at fiction, it conveys a strong sense of personal distaste and critical failure[cite: 14]."
+    },
+    {
+      "word": "meticulous",
+      "emotional_intensity": 35,
+      "semantic_complexity": 65,
+      "explanation": "This describes Orwell's early descriptive style, indicating a precise, almost clinical emotional detachment[cite: 28]."
+    },
+    {
+      "word": "temperament",
+      "emotional_intensity": 45,
+      "semantic_complexity": 55,
+      "explanation": "Orwell notes the need to discipline this internal nature, reflecting the struggle between emotional impulse and artistic control[cite: 41]."
+    },
+    {
+      "word": "disagreeable",
+      "emotional_intensity": 60,
+      "semantic_complexity": 35,
+      "explanation": "Orwell uses this to describe his own early mannerisms, reflecting a blunt and self-critical emotional honesty[cite: 6]."
+    },
+    {
+      "word": "posterity",
+      "emotional_intensity": 30,
+      "semantic_complexity": 60,
+      "explanation": "This word identifies the historical impulse to store facts for the future, representing a calm, forward-looking motivation[cite: 57]."
+    },
+    {
+      "word": "propaganda",
+      "emotional_intensity": 82,
+      "semantic_complexity": 40,
+      "explanation": "Though often negative, Orwell uses it to describe his work's political aim, carrying high emotional charge and public significance[cite: 102]."
+    }
+  ]
+}
