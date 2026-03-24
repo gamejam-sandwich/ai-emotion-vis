@@ -1,0 +1,152 @@
+[
+  {
+    "word": "lonely",
+    "emotional_intensity": 75,
+    "semantic_complexity": 20,
+    "explanation": "Chosen for its central role in shaping Orwell’s psyche; it carries strong emotional weight but is conceptually simple."
+  },
+  {
+    "word": "isolated",
+    "emotional_intensity": 80,
+    "semantic_complexity": 30,
+    "explanation": "Represents deep emotional separation influencing his writing motives; slightly more abstract than 'lonely.'"
+  },
+  {
+    "word": "failure",
+    "emotional_intensity": 85,
+    "semantic_complexity": 25,
+    "explanation": "Key to Orwell’s self-perception and motivation; emotionally heavy but straightforward in meaning."
+  },
+  {
+    "word": "ambition",
+    "emotional_intensity": 70,
+    "semantic_complexity": 40,
+    "explanation": "Reflects inner drive and conflict; moderately complex due to its psychological nuance."
+  },
+  {
+    "word": "egoism",
+    "emotional_intensity": 65,
+    "semantic_complexity": 60,
+    "explanation": "One of Orwell’s stated motives; emotionally charged but conceptually more philosophical."
+  },
+  {
+    "word": "aesthetic",
+    "emotional_intensity": 50,
+    "semantic_complexity": 75,
+    "explanation": "Important to his love of language; lower emotional charge but high intellectual complexity."
+  },
+  {
+    "word": "injustice",
+    "emotional_intensity": 90,
+    "semantic_complexity": 45,
+    "explanation": "A driving emotional force behind his political writing; highly charged yet broadly understandable."
+  },
+  {
+    "word": "hatred",
+    "emotional_intensity": 95,
+    "semantic_complexity": 20,
+    "explanation": "Extremely strong emotional term tied to authority and oppression; very simple semantically."
+  },
+  {
+    "word": "compulsion",
+    "emotional_intensity": 70,
+    "semantic_complexity": 55,
+    "explanation": "Describes the involuntary urge to write; emotionally significant with moderate abstraction."
+  },
+  {
+    "word": "dream",
+    "emotional_intensity": 60,
+    "semantic_complexity": 35,
+    "explanation": "Represents imagination and lost innocence; moderately emotional and accessible."
+  },
+  {
+    "word": "dilemma",
+    "emotional_intensity": 65,
+    "semantic_complexity": 50,
+    "explanation": "Captures internal conflict about purpose and era; moderately complex and emotional."
+  },
+  {
+    "word": "propaganda",
+    "emotional_intensity": 80,
+    "semantic_complexity": 55,
+    "explanation": "Loaded political term reflecting tension in writing; emotionally charged with conceptual weight."
+  },
+  {
+    "word": "truth",
+    "emotional_intensity": 85,
+    "semantic_complexity": 50,
+    "explanation": "Central ethical concern in the essay; powerful but philosophically layered."
+  },
+  {
+    "word": "betrayed",
+    "emotional_intensity": 90,
+    "semantic_complexity": 40,
+    "explanation": "Conveys emotional disappointment in his own writing; strong feeling with moderate complexity."
+  },
+  {
+    "word": "vanity",
+    "emotional_intensity": 60,
+    "semantic_complexity": 55,
+    "explanation": "Part of his critique of writers; moderately emotional and somewhat abstract."
+  },
+  {
+    "word": "struggle",
+    "emotional_intensity": 95,
+    "semantic_complexity": 30,
+    "explanation": "Describes writing as painful and exhausting; highly emotional and easy to grasp."
+  },
+  {
+    "word": "painful",
+    "emotional_intensity": 90,
+    "semantic_complexity": 15,
+    "explanation": "Directly expresses suffering tied to writing; emotionally intense and very simple."
+  },
+  {
+    "word": "demon",
+    "emotional_intensity": 85,
+    "semantic_complexity": 50,
+    "explanation": "Metaphor for inner drive; emotionally vivid and symbolically complex."
+  },
+  {
+    "word": "instinct",
+    "emotional_intensity": 65,
+    "semantic_complexity": 45,
+    "explanation": "Refers to subconscious motivation; moderately emotional and conceptually nuanced."
+  },
+  {
+    "word": "political",
+    "emotional_intensity": 75,
+    "semantic_complexity": 50,
+    "explanation": "Core to Orwell’s purpose; emotionally charged depending on context, with moderate abstraction."
+  },
+  {
+    "word": "imperialism",
+    "emotional_intensity": 85,
+    "semantic_complexity": 70,
+    "explanation": "Historically and morally loaded concept; both emotionally intense and intellectually complex."
+  },
+  {
+    "word": "poverty",
+    "emotional_intensity": 90,
+    "semantic_complexity": 25,
+    "explanation": "Represents lived hardship shaping his views; very emotional but conceptually simple."
+  },
+  {
+    "word": "unhappy",
+    "emotional_intensity": 70,
+    "semantic_complexity": 20,
+    "explanation": "Describes tone of his desired novels; moderately strong emotion with low complexity."
+  },
+  {
+    "word": "joy",
+    "emotional_intensity": 75,
+    "semantic_complexity": 20,
+    "explanation": "Contrasts suffering with pleasure in language; emotionally strong but simple."
+  },
+  {
+    "word": "lifeless",
+    "emotional_intensity": 65,
+    "semantic_complexity": 35,
+    "explanation": "Used to critique his own weaker writing; moderately emotional with some metaphorical depth."
+  }
+]
