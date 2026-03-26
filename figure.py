@@ -2,17 +2,19 @@ import plotly.graph_objects as go
 import json
 
 
-def _read_jsons():
-    json_files = ["gpt.json", "claude.json", "gemini.json"]
+def read_jsons(json_files):
+    """
+    Returns a list of dictionaries containing the JSON
+    files of emotional analysis data from each AI agent
+    """
     dicts = []
     for file in json_files:
-        with open(file, "r")as f:
-            print(f.readline())
+        with open(file, "r") as f:
+            d = json.loads(f.read())
+            dicts.append(d)
     return dicts
 
-dictionaries = _read_jsons()
-print(dictionaries)
-"""
+
 fig = go.Figure()
 fig.add_trace(
     go.Scatter(
@@ -20,4 +22,3 @@ fig.add_trace(
         y=[1, 3, 2, 5, 4]
     )
 )
-"""
