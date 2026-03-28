@@ -1,4 +1,5 @@
 import json
+import streamlit as st
 import plotly.graph_objects as go
 import main as m
 
@@ -20,6 +21,13 @@ gpt_data = scores[0]
 claude_data = scores[1]
 gemini_data = scores[2]
 
+option = st.selectbox(
+    "Choices",
+    ("GPT", "Claude", "Gemini")
+)
+st.write("You selected:", option)
+
+# DEFAULT IS GPT
 fig = go.Figure()
 fig.add_trace(
     go.Scatter(
@@ -27,4 +35,32 @@ fig.add_trace(
         y=gpt_data[1],
         mode="markers"
     )
+)
+# TODO: Figure out how to update the axis values
+if option == "GPT":
+    fig.update_layout(
+        xaxis=gpt_data[0],
+        yaxis=gpt_data[1]
+    )
+elif option == "Claude":
+    fig.add_trace(
+        go.Scatter(
+            x=claude_data[0],
+            y=claude_data[1],
+            mode="markers"
+        )
+    )
+else:
+    fig.add_trace(
+        go.Scatter(
+            x=gemini_data[0],
+            y=gemini_data[1],
+            mode="markers"
+        )
+    )
+
+fig.update_layout(
+    title=option,
+    xaxis_title="Emotional intensity",
+    yaxis_title="Semantic complexity"
 )

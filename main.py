@@ -15,9 +15,7 @@ def get_data(list_name):
         emotion_scores = []
         semantic_scores = []
         for word_set in d:
-            info = f"""{word_set["word"]} with emotional intensity
-                  {word_set["emotional_intensity"]}
-                  and semantic complexity {word_set["semantic_complexity"]}
+            info = f"""{word_set["word"]}: {word_set["explanation"]}
                   """
             emotion_scores.append(word_set["emotional_intensity"])
             semantic_scores.append(word_set["semantic_complexity"])
@@ -36,6 +34,13 @@ def launch_dashboard():
     st.write("# AI Emotional Analysis Visualization")
     st.plotly_chart(f.fig, config={'scrollZoom': False})
 
+    #TODO: When clicking each cell in the table, it should highlight
+    # the specific point on the graph. Also should automatically
+    # switch the dropdown to the agent that the word is for.
+    # MAYBE: example, if you hover over one of GPT's cells and the chart
+    # is currently on GPT's data, that point will be highlighted. But if
+    # you hovered over Gemini, it wouldn't highlight. You would have to
+    # switch to Gemini's data then hover/click on its cells for the effects.
     table_list = get_data("table")
     matrix = pd.DataFrame(
         {
