@@ -1,5 +1,6 @@
-import plotly.graph_objects as go
 import json
+import plotly.graph_objects as go
+import main as m
 
 
 def read_jsons(json_files):
@@ -9,16 +10,21 @@ def read_jsons(json_files):
     """
     dicts = []
     for file in json_files:
-        with open(file, "r") as f:
+        with open(file, "r", encoding="utf-8") as f:
             d = json.loads(f.read())
             dicts.append(d)
     return dicts
 
+scores = m.get_data("chart")
+gpt_data = scores[0]
+claude_data = scores[1]
+gemini_data = scores[2]
 
 fig = go.Figure()
 fig.add_trace(
     go.Scatter(
-        x=[1, 2, 3, 4, 5],
-        y=[1, 3, 2, 5, 4]
+        x=gpt_data[0],
+        y=gpt_data[1],
+        mode="markers"
     )
 )
