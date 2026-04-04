@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.graph_objects as go
 import figure as f
 
 
@@ -32,7 +33,52 @@ def get_data(list_name):
 def launch_dashboard():
     """Streamlit dashboard"""
     st.write("# AI Emotional Analysis Visualization")
-    st.plotly_chart(f.fig, config={'scrollZoom': False})
+
+    scores = get_data("chart")
+    gpt_data = scores[0]
+    claude_data = scores[1]
+    gemini_data = scores[2]
+
+    option = st.selectbox(
+        "Choices",
+        ("GPT", "Claude", "Gemini"),
+    )
+
+    fig = go.Figure()
+    # DEFAULT IS GPT
+    if option == "GPT":
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatter(
+                x=gpt_data[0],
+                y=gpt_data[1],
+                mode="markers"
+            )
+        )
+    elif option == "Claude":
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatter(
+                x=claude_data[0],
+                y=claude_data[1],
+                mode="markers"
+            )
+        )
+    else:
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatter(
+                x=gemini_data[0],
+                y=gemini_data[1],
+                mode="markers"
+            )
+        )
+    fig.update_layout(
+        title=option,
+        xaxis_title="Emotional intensity",
+        yaxis_title="Semantic complexity"
+    )
+    st.plotly_chart(fig, config={'scrollZoom': False})
 
     #TODO: When clicking each cell in the table, it should highlight
     # the specific point on the graph. Also should automatically
