@@ -43,7 +43,8 @@ def launch_dashboard():
         "Choices",
         ("GPT", "Claude", "Gemini"),
     )
-
+    #TODO: CHANGE OPTION TO CHECKBOX INSTEAD OF DROPDOWN
+    #TODO: ADD OPTION FOR SHOWING ALL THREE, ALSO DIFFERENT COLORS FOR EACH
     fig = go.Figure()
     # DEFAULT IS GPT
     if option == "GPT":
