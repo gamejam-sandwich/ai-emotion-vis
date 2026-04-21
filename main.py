@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+from data_processing import calculate_complexity
 import figure as f
 
 
 def get_data(list_name):
-    '''Gets 2D list of datapoints'''
+    """Gets 2D list of datapoints"""
     json_files = ["llm_files/chatgpt.json", "llm_files/claude_sonnet.json", "llm_files/gem.json"]
     table_list = []
     scores_list = []
@@ -14,12 +15,16 @@ def get_data(list_name):
     for d in dictionaries:
         mini_list = []
         emotion_scores = []
-        semantic_scores = [1]*25  # TODO: FIX PLACEHOLDER
+        semantic_scores = []
+        word_list = []
         for word_set in d:
             info = f"""{word_set["word"]}: {word_set["explanation"]}
                   """
             emotion_scores.append(word_set["emotional_intensity"])
+            word_list.append(word_set["word"])
             mini_list.append(info)
+        semantic_scores = calculate_complexity(word_list)
+        print(semantic_scores)
         table_list.append(mini_list)
         temp = [emotion_scores, semantic_scores]
         scores_list.append(temp)

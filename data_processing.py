@@ -16,10 +16,8 @@ def normalize_values(val, min, max):
     return ((val - min) / (max - min)) * 100
 
 
-
-
-
 def calculate_complexity(words):
+    """Calculates semantic complexity with normalized values"""
     concreteness_data = _load_concreteness()
 
     length_list = []
@@ -27,6 +25,16 @@ def calculate_complexity(words):
     norm_len = []
     norm_con = []
     for word in words:
+        if word == "undervalued":
+            # undervalued in CSV, but undervalue is
+            word = "undervalue"
+        elif word == "shivers":
+            word = "shiver"
+        elif word == "betrayed":
+            word = "betray"
+        elif word == "tumultuous":
+            # tumultuously or tumultuousness?
+            word = "tumultuousness"
         length_list.append(len(word))
         concreteness_list.append(concreteness_data[word])
     for i in range(len(length_list)):  # pylint: disable=consider-using-enumerate
@@ -40,5 +48,3 @@ def calculate_complexity(words):
         complexity = (norm_con[i] * 0.6) + (norm_len[i] * 0.4)
         complexity_list.append(complexity)
     return complexity_list
-
-print(calculate_complexity(["apple", "isolated", "unpopular"]))
