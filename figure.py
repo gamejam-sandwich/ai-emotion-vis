@@ -6,7 +6,7 @@ import main as m
 def read_jsons(json_files):
     """
     Returns a list of dictionaries containing the JSON
-    files of emotional analysis data from each AI agent
+    files of emotional analysis data from each LLM
     """
     dicts = []
     for file in json_files:
@@ -14,7 +14,6 @@ def read_jsons(json_files):
             d = json.loads(f.read())
             dicts.append(d)
     return dicts
-
 @st.cache_data
 def load_data():
     """Caches the data to avoid reloading on every change"""

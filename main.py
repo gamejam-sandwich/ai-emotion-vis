@@ -6,7 +6,7 @@ import figure as f
 
 def get_data(list_name):
     '''Gets 2D list of datapoints'''
-    json_files = ["gpt.json", "claude.json", "gemini.json"]
+    json_files = ["llm_files/chatgpt.json", "llm_files/claude_sonnet.json", "llm_files/gem.json"]
     table_list = []
     scores_list = []
     i = 0
@@ -14,12 +14,11 @@ def get_data(list_name):
     for d in dictionaries:
         mini_list = []
         emotion_scores = []
-        semantic_scores = []
+        semantic_scores = [1]*25  # TODO: FIX PLACEHOLDER
         for word_set in d:
             info = f"""{word_set["word"]}: {word_set["explanation"]}
                   """
             emotion_scores.append(word_set["emotional_intensity"])
-            semantic_scores.append(word_set["semantic_complexity"])
             mini_list.append(info)
         table_list.append(mini_list)
         temp = [emotion_scores, semantic_scores]
