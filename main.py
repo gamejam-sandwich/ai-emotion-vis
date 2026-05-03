@@ -24,7 +24,6 @@ def get_data(list_name):
             word_list.append(word_set["word"])
             mini_list.append(info)
         semantic_scores = calculate_complexity(word_list)
-        print(semantic_scores)
         table_list.append(mini_list)
         temp = [emotion_scores, semantic_scores]
         scores_list.append(temp)
@@ -43,48 +42,62 @@ def launch_dashboard():
     claude_data = scores[1]
     gemini_data = scores[2]
 
-    option = st.selectbox(
-        "Choices",
-        ("GPT", "Claude", "Gemini"),
-    )
-    #TODO: CHANGE OPTION TO CHECKBOX INSTEAD OF DROPDOWN
-    #TODO: ADD OPTION FOR SHOWING ALL THREE, ALSO DIFFERENT COLORS FOR EACH
+
+    # Arrange checkboxes horizontally
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        # Default select to display Claude's data
+        claude = st.checkbox("Claude", value=True)
+    with col2:
+        gemini = st.checkbox("Gemini")
+    with col3:
+        gpt = st.checkbox("Chat-GPT")
+
     fig = go.Figure()
-    # DEFAULT IS GPT
-    if option == "GPT":
-        fig = go.Figure()
-        fig.add_trace(
-            go.Scatter(
-                x=gpt_data[0],
-                y=gpt_data[1],
-                mode="markers"
-            )
-        )
-    elif option == "Claude":
-        fig = go.Figure()
+    selected_models = []
+
+    if claude:
         fig.add_trace(
             go.Scatter(
                 x=claude_data[0],
                 y=claude_data[1],
-                mode="markers"
+                mode="markers",
+                marker=dict(color="red"),
+                name="Claude"
             )
         )
-    else:
-        fig = go.Figure()
+        selected_models.append("Claude")
+    if gemini:
         fig.add_trace(
             go.Scatter(
                 x=gemini_data[0],
                 y=gemini_data[1],
-                mode="markers"
+                mode="markers",
+                marker=dict(color="green"),
+                name="Gemini"
             )
         )
-    fig.update_layout(
-        title=option,
-        xaxis_title="Emotional intensity",
-        yaxis_title="Semantic complexity"
-    )
-    st.plotly_chart(fig, config={'scrollZoom': False})
-
+        selected_models.append("Gemini")
+    if gpt:
+        fig.add_trace(
+            go.Scatter(
+                x=gpt_data[0],
+                y=gpt_data[1],
+                mode="markers",
+                marker=dict(color="blue"),
+                name="GPT"
+            )
+        )
+        selected_models.append("GPT")
+    if selected_models:
+        fig.update_layout(
+            title="TODO: a more descriptive title",
+            xaxis_title="Emotional intensity",
+            yaxis_title="Semantic complexity"
+        )
+        st.plotly_chart(fig, config={'scrollZoom': False})
+    else:
+        st.error("Select at least one model")
     #TODO: When clicking each cell in the table, it should highlight
     # the specific point on the graph. Also should automatically
     # switch the dropdown to the agent that the word is for.

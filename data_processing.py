@@ -25,8 +25,8 @@ def calculate_complexity(words):
     norm_len = []
     norm_con = []
     for word in words:
+        """Words that are not exactly in the CSV"""
         if word == "undervalued":
-            # undervalued in CSV, but undervalue is
             word = "undervalue"
         elif word == "shivers":
             word = "shiver"
