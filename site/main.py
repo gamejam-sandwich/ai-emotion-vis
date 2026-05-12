@@ -1,9 +1,25 @@
 import streamlit as st
+import json
 import pandas as pd
 import plotly.graph_objects as go
-from data_processing import calculate_complexity
-import figure as f
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from data import data_processing
+
+
+def read_jsons(json_files):
+    """
+    Returns a list of dictionaries containing the JSON
+    files of emotional analysis data from each LLM
+    """
+    dicts = []
+    for file in json_files:
+        with open(file, "r", encoding="utf-8") as f:
+            d = json.loads(f.read())
+            dicts.append(d)
+    return dicts
 
 def get_data(list_name):
     """Gets 2D list of datapoints"""
@@ -11,7 +27,7 @@ def get_data(list_name):
     table_list = []
     scores_list = []
     i = 0
-    dictionaries = f.read_jsons(json_files)
+    dictionaries = read_jsons(json_files)
     for d in dictionaries:
         mini_list = []
         emotion_scores = []
@@ -23,7 +39,7 @@ def get_data(list_name):
             emotion_scores.append(word_set["emotional_intensity"])
             word_list.append(word_set["word"])
             mini_list.append(info)
-        semantic_scores = calculate_complexity(word_list)
+        semantic_scores = data_processing.calculate_complexity(word_list)
         table_list.append(mini_list)
         temp = [emotion_scores, semantic_scores]
         scores_list.append(temp)
@@ -91,7 +107,7 @@ def launch_dashboard():
         selected_models.append("GPT")
     if selected_models:
         fig.update_layout(
-            title="TODO: a more descriptive title",
+            title="Semantic Complexity vs Emotional Intensity",
             xaxis_title="Emotional intensity",
             yaxis_title="Semantic complexity"
         )
@@ -115,6 +131,7 @@ def launch_dashboard():
         index = [i for i in range(1, 26)]
     )
     st.table(matrix)
+
 
 
 if __name__ == "__main__":

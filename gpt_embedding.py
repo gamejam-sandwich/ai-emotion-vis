@@ -10,9 +10,9 @@ MODEL = "gemini-embedding-001"
 
 # Prototype words to standardize emotional analysis
 prototypes = {
-    0: ["Indifferent", "Detached", "Calm", "Unaffected", "Impassive"],
-    50: ["Concerned", "Hopeful", "Frustrated", "Excited", "Anxious"],
-    100: ["Devastated", "Euphoric", "Enraged", "Hysterical", "Ecstatic"]
+    0: ["neutral", "unemotional", "apathetic", "indifferent", "dispassionate"],
+    50: ["emotional", "feeling", "passionate", "moved", "stirred"],
+    100: ["overwhelming", "consuming", "all-consuming", "devastating", "ecstatic"]
 }
 
 def get_embedding(text):
@@ -48,9 +48,18 @@ def get_emotional_intensity(input_word):
     # Weighted scoring
     sum_sims = sim_to_hundred + sim_to_fifty + sim_to_zero
     return (0*sim_to_zero + 50*sim_to_fifty + 100*sim_to_hundred) / sum_sims
-
+"""
 test_words = ["apple", "bored", "annoyed", "catastrophic"]
 print("\n--- Scoring Results ---")
 for word in test_words:
     score = get_emotional_intensity(word)
     print(f"Word: '{word}' -> Emotional Intensity Score: {score:.1f}")
+"""
+# Testing prototype vector similarities
+for intensity, words in prototypes.items():
+    avg_vec = scale_vectors[intensity]
+    print(f"\nIntensity {intensity} average vector:")
+    for other_intensity, other_vec in scale_vectors.items():
+        if other_intensity != intensity:
+            sim = cosine_similarity(avg_vec, other_vec)
+            print(f"  Similarity to {other_intensity}: {sim:.3f}")
