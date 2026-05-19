@@ -36,30 +36,21 @@ def cosine_similarity(a, b):
     # (Dot product) divided by (Euclidean norm of A and B)
     return np.dot(a, b) / (norm(a) * norm(b))
 
+axis_vector = scale_vectors[100] - scale_vectors[0]
 def get_emotional_intensity(input_word):
-    """Projects word onto the pre-defined intensity scale"""
+    """Projects word onto the 0-->100 emotion axis"""
     word_vec = get_embedding(input_word)
+    relative_word = word_vec - scale_vectors[0]
+    # Scalar projection onto axis
+    projection = np.dot(relative_word, axis_vector) / np.dot(axis_vector, axis_vector)
+    score = np.clip(projection, 0, 1) * 100
+    return float(score)
 
-    # Calculate cosine similarity to each intensity
-    sim_to_zero = cosine_similarity(word_vec, scale_vectors[0])
-    sim_to_fifty = cosine_similarity(word_vec, scale_vectors[50])
-    sim_to_hundred = cosine_similarity(word_vec, scale_vectors[100])
+# Validation — run this once to sanity-check
+print("Midpoint anchor should project near 50:")
+mid_proj = get_emotional_intensity("emotional")  # one of your 50-prototypes
+print(f"  'emotional' → {mid_proj:.1f}")
 
-    # Weighted scoring
-    sum_sims = sim_to_hundred + sim_to_fifty + sim_to_zero
-    return (0*sim_to_zero + 50*sim_to_fifty + 100*sim_to_hundred) / sum_sims
-"""
-test_words = ["apple", "bored", "annoyed", "catastrophic"]
-print("\n--- Scoring Results ---")
-for word in test_words:
-    score = get_emotional_intensity(word)
-    print(f"Word: '{word}' -> Emotional Intensity Score: {score:.1f}")
-"""
-# Testing prototype vector similarities
-for intensity, words in prototypes.items():
-    avg_vec = scale_vectors[intensity]
-    print(f"\nIntensity {intensity} average vector:")
-    for other_intensity, other_vec in scale_vectors.items():
-        if other_intensity != intensity:
-            sim = cosine_similarity(avg_vec, other_vec)
-            print(f"  Similarity to {other_intensity}: {sim:.3f}")
+print("\nTest words:")
+for w in ["apple", "bored", "sad", "furious", "devastating"]:
+    print(f"  '{w}' → {get_emotional_intensity(w):.1f}")
