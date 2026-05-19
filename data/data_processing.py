@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
+import os
 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 @st.cache_data
 def _load_concreteness():
     """Using streamlit-cache to load data once across all reruns"""
-    dataframe = pd.read_csv("concreteness.csv")
+    dataframe = pd.read_csv(os.path.join(BASE_DIR, "concreteness.csv"))
     concreteness_dict = dict(zip(dataframe.iloc[:, 0].str.lower(), dataframe.iloc[:, 2]))
     # Structure as {word: concreteness_score}
     return concreteness_dict
@@ -33,7 +34,6 @@ def calculate_complexity(words):
         elif word == "betrayed":
             word = "betray"
         elif word == "tumultuous":
-            # tumultuously or tumultuousness?
             word = "tumultuousness"
         length_list.append(len(word))
         concreteness_list.append(concreteness_data[word])

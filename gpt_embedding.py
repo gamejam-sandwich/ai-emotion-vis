@@ -1,11 +1,16 @@
 #import openai
 import google.generativeai as genai
 import numpy as np
+import streamlit as st
+import os
+from dotenv import load_dotenv
 from numpy.linalg import norm
+
 
 #client = openai.OpenAI(api_key="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")
 #MODEL = "text-embedding-3-small"
-genai.configure(api_key="AIzaSyDuyDLRUer8xHXDLv_ZWRU-dj94tApfCjo")
+load_dotenv()
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 MODEL = "gemini-embedding-001"
 
 # Prototype words to standardize emotional analysis
@@ -15,6 +20,7 @@ prototypes = {
     100: ["overwhelming", "consuming", "devastating", "ecstatic", "anguish"]
 }
 
+@st.cache_data
 def get_embedding(text):
     """Retrieves vector embedding of the input text"""
     #response = client.embeddings.create(input=text, model=MODEL)

@@ -7,7 +7,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from data import data_processing
-
+import gpt_embedding
 
 def read_jsons(json_files):
     """
@@ -21,9 +21,15 @@ def read_jsons(json_files):
             dicts.append(d)
     return dicts
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def get_data(list_name):
     """Gets 2D list of datapoints"""
-    json_files = ["llm_files/chatgpt.json", "llm_files/claude_sonnet.json", "llm_files/gem.json"]
+    json_files = [
+        os.path.join(BASE_DIR, "llm_files", "chatgpt.json"),
+        os.path.join(BASE_DIR, "llm_files", "claude_sonnet.json"),
+        os.path.join(BASE_DIR, "llm_files", "gem.json")
+    ]
     table_list = []
     scores_list = []
     i = 0
@@ -36,7 +42,9 @@ def get_data(list_name):
         for word_set in d:
             info = f"""{word_set["word"]}: {word_set["explanation"]}
                   """
-            emotion_scores.append(word_set["emotional_intensity"])
+            #emotion_scores.append(word_set["emotional_intensity"])
+            score = gpt_embedding.get_emotional_intensity(word_set["word"])
+            emotion_scores.append(score)
             word_list.append(word_set["word"])
             mini_list.append(info)
         semantic_scores = data_processing.calculate_complexity(word_list)
