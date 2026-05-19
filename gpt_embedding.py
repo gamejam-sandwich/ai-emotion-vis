@@ -10,9 +10,9 @@ MODEL = "gemini-embedding-001"
 
 # Prototype words to standardize emotional analysis
 prototypes = {
-    0: ["neutral", "unemotional", "apathetic", "indifferent", "dispassionate"],
-    50: ["emotional", "feeling", "passionate", "moved", "stirred"],
-    100: ["overwhelming", "consuming", "all-consuming", "devastating", "ecstatic"]
+    0: ["table", "walk", "paper", "number", "rock"],
+    50: ["touched", "concerned", "affected", "moved", "unsettled"],
+    100: ["overwhelming", "consuming", "devastating", "ecstatic", "anguish"]
 }
 
 def get_embedding(text):
