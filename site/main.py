@@ -42,7 +42,6 @@ def get_data(list_name):
         for word_set in d:
             info = f"""{word_set["word"]}: {word_set["explanation"]}
                   """
-            #emotion_scores.append(word_set["emotional_intensity"])
             score = gpt_embedding.get_emotional_intensity(word_set["word"])
             emotion_scores.append(score)
             word_list.append(word_set["word"])
@@ -130,6 +129,23 @@ def launch_dashboard():
     # you hovered over Gemini, it wouldn't highlight. You would have to
     # switch to Gemini's data then hover/click on its cells for the effects.
     table_list = get_data("table")
+    scores_list = get_data("chart")
+
+    model_names = ["Chat-GPT", "Claude", "Gemini"]
+    columns = {}
+    for i, name in enumerate(model_names):
+        column = []
+        for j in range(len(table_list[i])):
+            cell = table_list[i][j]
+            emotional = scores_list[i][0][j]
+            semantic = scores_list[i][1][j]
+            column.append(f"{cell}\nEmotional: {emotional:.1f} | Semantic: {semantic:.1f}")
+        columns[name] = column
+
+    matrix = pd.DataFrame(columns, index=[i for i in range(1, 26)])
+    st.table(matrix)
+
+    """
     matrix = pd.DataFrame(
         {
             "Chat-GPT": table_list[0],
@@ -139,6 +155,7 @@ def launch_dashboard():
         index = [i for i in range(1, 26)]
     )
     st.table(matrix)
+    """
 
 
 
