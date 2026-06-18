@@ -1,8 +1,9 @@
+from streamlit_plotly_events import plotly_events
 import streamlit as st
 import json
 import pandas as pd
 import plotly.graph_objects as go
-
+import plotly.express as px
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -64,7 +65,7 @@ def launch_dashboard():
     gpt_data = scores[0]
     claude_data = scores[1]
     gemini_data = scores[2]
-
+    print(gemini_data)
 
     # Arrange checkboxes horizontally
     col1, col2, col3 = st.columns(3)
@@ -112,22 +113,34 @@ def launch_dashboard():
             )
         )
         selected_models.append("GPT")
+    col4, col5, col6 = st.columns([1, 5, 1])
     if selected_models:
-        fig.update_layout(
-            title="Semantic Complexity vs Emotional Intensity",
-            xaxis_title="Emotional intensity",
-            yaxis_title="Semantic complexity"
-        )
-        st.plotly_chart(fig, config={'scrollZoom': False})
+        with col5:
+            fig.update_layout(
+                title=dict(text="Semantic Complexity vs Emotional Intensity", x=0.5, xanchor="center"),
+                xaxis_title="Emotional intensity",
+                yaxis_title="Semantic complexity",
+                dragmode=False,
+                width=500,
+                height=500
+            )
+            fig.update_xaxes(range=[30,100], dtick=10)
+            fig.update_yaxes(range=[30,100], dtick=10)
+            # Click event
+            selected_point = plotly_events(fig, click_event=True, select_event=False, hover_event=False)
+            #st.plotly_chart(fig, config={'scrollZoom': False}, use_container_width=False)
+        
+        with col6:
+            if selected_point:
+                point = selected_point[0]
+                x=point['x']
+                y=point['y']
+                st.write(f"Point:{x}, {y}")
     else:
         st.error("Select at least one model")
-    #TODO: When clicking each cell in the table, it should highlight
-    # the specific point on the graph. Also should automatically
-    # switch the dropdown to the agent that the word is for.
-    # MAYBE: example, if you hover over one of GPT's cells and the chart
-    # is currently on GPT's data, that point will be highlighted. But if
-    # you hovered over Gemini, it wouldn't highlight. You would have to
-    # switch to Gemini's data then hover/click on its cells for the effects.
+    
+    
+
     table_list = get_data("table")
     scores_list = get_data("chart")
 
